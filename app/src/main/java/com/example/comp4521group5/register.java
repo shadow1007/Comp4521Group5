@@ -80,7 +80,7 @@ public class register extends AppCompatActivity {
 
                                         Map<String, Object> userNew = new HashMap<>();
                                         userNew.put("email", dbEmail);
-                                        userNew.put(userID,userID);
+                                        userNew.put("userID",userID);
                                         db.collection("users")
                                                 .add(userNew)
                                                 .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
