@@ -80,13 +80,13 @@ public class register extends AppCompatActivity {
 
                                         Map<String, Object> userNew = new HashMap<>();
                                         userNew.put("email", dbEmail);
-                                        userNew.put("userID",userID);
-                                        db.collection("users")
-                                                .add(userNew)
-                                                .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
+                                       // userNew.put("userID",userID);
+                                        db.collection("users").document(userID).set(userNew)
+                                               // .add(userNew)
+                                                .addOnSuccessListener(new OnSuccessListener<Void>() {
                                                     @Override
-                                                    public void onSuccess(DocumentReference documentReference) {
-                                                        Toast.makeText(getApplicationContext(), "DocumentSnapshot added with ID: " + documentReference.getId(), Toast.LENGTH_SHORT).show();
+                                                    public void onSuccess(Void aVoid) {
+                                                        Toast.makeText(getApplicationContext(), "DocumentSnapshot added", Toast.LENGTH_SHORT).show();
                                                     }
                                                 })
                                                 .addOnFailureListener(new OnFailureListener() {
