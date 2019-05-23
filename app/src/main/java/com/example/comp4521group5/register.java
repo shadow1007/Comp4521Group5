@@ -80,6 +80,8 @@ public class register extends AppCompatActivity {
 
                                         Map<String, Object> userNew = new HashMap<>();
                                         userNew.put("email", dbEmail);
+                                        int init=0;
+                                        userNew.put("profileInit",init);
                                        // userNew.put("userID",userID);
                                         db.collection("users").document(userID).set(userNew)
                                                // .add(userNew)
@@ -122,6 +124,8 @@ public class register extends AppCompatActivity {
     private void addToDatabase(FirebaseFirestore a,String e){
         Map<String, Object> user = new HashMap<>();
         user.put("email", e);
+        int init=0;
+        user.put("profileInit",init);
         a.collection("users")
                 .add(user)
                 .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
